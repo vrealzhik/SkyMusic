@@ -1,3 +1,18 @@
+@keyframes sceleton {
+  from {
+    background-color: #313131;
+  }
+
+  50% {
+    background-color: #464545;
+  }
+
+  to {
+    background-color: #313131;
+  }
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -32,7 +47,7 @@ ul li {
   src: local("StratosSkyeng"), local("StratosSkyeng"),
     url("../public/fonts/StratosSkyeng.woff2") format("woff2"),
     url("../public/fonts/StratosSkyeng.woff") format("woff");
-    /* url("../public/fonts/StratosSkyeng.ttf") format("truetype"); */
+  /* url("../public/fonts/StratosSkyeng.ttf") format("truetype"); */
   font-weight: 400;
   font-style: normal;
 }
@@ -282,11 +297,11 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 43px 44px 47px 40px;
 }
 
@@ -365,11 +380,11 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .modal__btn-signup-ent a {
@@ -385,11 +400,11 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .container {
@@ -413,6 +428,11 @@ body {
 }
 
 ._btn-text:active {
+  border-color: #ad61ff;
+  color: #ad61ff;
+  cursor: pointer;
+}
+._btn-text:focus {
   border-color: #ad61ff;
   color: #ad61ff;
   cursor: pointer;
@@ -486,6 +506,7 @@ body {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .nav__menu {
@@ -647,10 +668,73 @@ body {
   border: 1px solid #ffffff;
   border-radius: 60px;
   padding: 6px 20px;
+  background-color: #181818;
+  color: #FFFFFF;
 }
 
-.filter__button:not(:last-child) {
+.filter__button_box-author {
+  position: relative;
+  display: inline-block;
   margin-right: 10px;
+}
+
+.filter__button_box-year {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.filter__button_box-genre {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.filter__menu {
+  padding: 34px;
+  border-radius: 12px;
+  position: absolute;
+  background-color: #313131;
+  width: 248px;
+  height: 305px;
+  visibility: visible;
+}
+
+.filter__menu-scroll {
+  width: 180px;
+  height: 237px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  overflow-y: scroll;
+}
+
+.filter__menu-scroll::-webkit-scrollbar {
+  width: 4px;
+  margin: 34px;
+}
+
+.filter__menu-scroll::-webkit-scrollbar-track {
+  background: #4B4949;
+  border-radius: 20px;
+}
+
+.filter__menu-scroll::-webkit-scrollbar-thumb {
+  background: #FFF;
+  border-radius: 20px;
+}
+
+.filter__menu a {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  color: #FFF;
+}
+
+.filter__menu a:hover {
+  color: #B672FF;
+  text-decoration-line: underline;
 }
 
 .content__title {
@@ -668,6 +752,22 @@ body {
   -ms-flex-pack: justify;
   justify-content: space-between;
   margin-bottom: 24px;
+}
+
+.playlist-title__box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .content__playlist {
@@ -737,6 +837,22 @@ body {
   align-items: center;
 }
 
+.track__album_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .track__title {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -749,6 +865,32 @@ body {
   -ms-flex-align: center;
   align-items: center;
   width: 447px;
+}
+
+.track__img_sceleton {
+  width: 51px;
+  height: 51px;
+  margin-right: 17px;
+  padding: 16px;
+  animation: sceleton 2s infinite;
+}
+
+.track__title_sceleton {
+  width: 356px;
+  height: 19px;
+  animation: sceleton 2s infinite;
+}
+
+.track__author_sceleton {
+  width: 271px;
+  height: 19px;
+  animation: sceleton 2s infinite;
+}
+
+.track__album_sceleton {
+  width: 305px;
+  height: 19px;
+  animation: sceleton 2s infinite;
 }
 
 .track__title-image {
@@ -913,6 +1055,12 @@ body {
 .sidebar__link {
   width: 100%;
   height: 100%;
+}
+
+.sidebar__sceleton {
+  width: 250px;
+  height: 150px;
+  animation: sceleton 2s infinite;
 }
 
 .sidebar__img {
@@ -1084,7 +1232,7 @@ body {
   display: grid;
   -ms-grid-columns: auto 1fr;
   grid-template-columns: auto 1fr;
-  grid-template-areas: "image author" "image album";
+  grid-template-areas: "image author""image album";
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -1108,6 +1256,39 @@ body {
   -ms-grid-row-span: 2;
   grid-column: 1;
   grid-area: image;
+}
+
+.track__img_bar_sceleton {
+  width: 51px;
+  height: 51px;
+  background-color: #313131;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: 12px;
+  grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-column: 1;
+  grid-area: image;
+  animation: sceleton 2s infinite;
+}
+
+.track__author_bar_sceleton {
+  width: 58px;
+  height: 13px;
+  animation: sceleton 2s infinite;
+}
+
+.track__album_bar_sceleton {
+  width: 58px;
+  height: 13px;
+  animation: sceleton 2s infinite;
 }
 
 .track-play__svg {

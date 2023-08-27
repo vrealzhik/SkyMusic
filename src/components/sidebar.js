@@ -1,4 +1,4 @@
-export function Sidebar() {
+export function Sidebar(props) {
   return (
     <div className="main__sidebar sidebar">
       <div className="sidebar__personal">
@@ -13,29 +13,41 @@ export function Sidebar() {
         <div className="sidebar__list">
           <div className="sidebar__item">
             <a className="sidebar__link" href="#">
-              <img
-                className="sidebar__img"
-                src="img/playlist01.png"
-                alt="day's playlist"
-              />
+              {props.bef ? (
+                <div className="sidebar__sceleton"></div>
+              ) : (
+                <img
+                  className="sidebar__img"
+                  src="img/playlist01.png"
+                  alt="day's playlist"
+                />
+              )}
             </a>
           </div>
           <div className="sidebar__item">
             <a className="sidebar__link" href="#">
-              <img
-                className="sidebar__img"
-                src="img/playlist02.png"
-                alt="day's playlist"
-              />
+              {props.bef ? (
+                <div className="sidebar__sceleton"></div>
+              ) : (
+                <img
+                  className="sidebar__img"
+                  src="img/playlist02.png"
+                  alt="day's playlist"
+                />
+              )}
             </a>
           </div>
           <div className="sidebar__item">
             <a className="sidebar__link" href="#">
-              <img
-                className="sidebar__img"
-                src="img/playlist03.png"
-                alt="day's playlist"
-              />
+              {props.bef ? (
+                <div className="sidebar__sceleton"></div>
+              ) : (
+                <img
+                  className="sidebar__img"
+                  src="img/playlist03.png"
+                  alt="day's playlist"
+                />
+              )}
             </a>
           </div>
         </div>

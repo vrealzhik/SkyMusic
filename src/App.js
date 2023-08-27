@@ -6,8 +6,21 @@ import { PlaylistItem } from "./components/PlaylistItem";
 import { FilterMusic } from "./components/filter";
 import { PlaylistTitle } from "./components/topPlyalistTitle";
 import { Sidebar } from "./components/sidebar";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [sceleton, setSceleton] = useState(true);
+
+  const toggleSceleton = () => setSceleton(!sceleton);
+
+  useEffect(() => {
+    const timerId = setTimeout(() => toggleSceleton(), 5000);
+
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, []);
+
   return (
     <div className="wrapper">
       <div className="container">
@@ -19,27 +32,92 @@ function App() {
             <FilterMusic />
             <div className="centerblock__content">
               <PlaylistTitle />
-              
+
               <div className="content__playlist playlist">
-                <PlaylistItem name="Guilt" singer="Nero" albom="Welcome Reality" />
-                <PlaylistItem name="Guilt" singer="Nero" albom="Welcome Reality" />
-                <PlaylistItem name="Guilt" singer="Nero" albom="Welcome Reality" />
-                <PlaylistItem name="Guilt" singer="Nero" albom="Welcome Reality" />
-                <PlaylistItem name="Guilt" singer="Nero" albom="Welcome Reality" />
-                <PlaylistItem name="Guilt" singer="Nero" albom="Welcome Reality" />
-                <PlaylistItem name="Guilt" singer="Nero" albom="Welcome Reality" />
-                <PlaylistItem name="Guilt" singer="Nero" albom="Welcome Reality" />
-                <PlaylistItem name="Guilt" singer="Nero" albom="Welcome Reality" />
-                <PlaylistItem name="Guilt" singer="Nero" albom="Welcome Reality" />
-                <PlaylistItem name="Guilt" singer="Nero" albom="Welcome Reality" />
-                <PlaylistItem name="Guilt" singer="Nero" albom="Welcome Reality" />
-                <PlaylistItem name="Guilt" singer="Nero" albom="Welcome Reality" />
+                <PlaylistItem
+                  name="Guilt"
+                  singer="Nero"
+                  albom="Welcome Reality"
+                  bef={sceleton}
+                />
+                <PlaylistItem
+                  name="Guilt"
+                  singer="Nero"
+                  albom="Welcome Reality"
+                  bef={sceleton}
+                />
+                <PlaylistItem
+                  name="Guilt"
+                  singer="Nero"
+                  albom="Welcome Reality"
+                  bef={sceleton}
+                />
+                <PlaylistItem
+                  name="Guilt"
+                  singer="Nero"
+                  albom="Welcome Reality"
+                  bef={sceleton}
+                />
+                <PlaylistItem
+                  name="Guilt"
+                  singer="Nero"
+                  albom="Welcome Reality"
+                  bef={sceleton}
+                />
+                <PlaylistItem
+                  name="Guilt"
+                  singer="Nero"
+                  albom="Welcome Reality"
+                  bef={sceleton}
+                />
+                <PlaylistItem
+                  name="Guilt"
+                  singer="Nero"
+                  albom="Welcome Reality"
+                  bef={sceleton}
+                />
+                <PlaylistItem
+                  name="Guilt"
+                  singer="Nero"
+                  albom="Welcome Reality"
+                  bef={sceleton}
+                />
+                <PlaylistItem
+                  name="Guilt"
+                  singer="Nero"
+                  albom="Welcome Reality"
+                  bef={sceleton}
+                />
+                <PlaylistItem
+                  name="Guilt"
+                  singer="Nero"
+                  albom="Welcome Reality"
+                  bef={sceleton}
+                />
+                <PlaylistItem
+                  name="Guilt"
+                  singer="Nero"
+                  albom="Welcome Reality"
+                  bef={sceleton}
+                />
+                <PlaylistItem
+                  name="Guilt"
+                  singer="Nero"
+                  albom="Welcome Reality"
+                  bef={sceleton}
+                />
+                <PlaylistItem
+                  name="Guilt"
+                  singer="Nero"
+                  albom="Welcome Reality"
+                  bef={sceleton}
+                />
               </div>
             </div>
           </div>
-          <Sidebar />
+          <Sidebar bef={sceleton} />
         </main>
-        <BarMusic />
+        <BarMusic bef={sceleton} />
         <footer className="footer"></footer>
       </div>
     </div>
