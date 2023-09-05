@@ -36,47 +36,22 @@ export function FilterMusic() {
     }
   };
 
-  // Тестовый вариант отлавливания клика вне компонента
-  // window.onclick = (event) => {
-  //   if (
-  //     !event.target.matches(".filter__button") &&
-  //     !author &&
-  //     !event.target.matches(".filter__menu") &&
-  //     !event.target.matches(".filter__menu-scroll") &&
-  //     !event.target.matches(".filter__menu_link")
-  //   ) {
-  //     showAuthorFilterMenu();
-  //   }
-  //   if (
-  //     !event.target.matches(".filter__button") &&
-  //     !year &&
-  //     !event.target.matches(".filter__menu") &&
-  //     !event.target.matches(".filter__menu-scroll") &&
-  //     !event.target.matches(".filter__menu_link")
-  //   ) {
-  //     showYearFilterMenu();
-  //   }
-  //   if (
-  //     !event.target.matches(".filter__button") &&
-  //     !genre &&
-  //     !event.target.matches(".filter__menu") &&
-  //     !event.target.matches(".filter__menu-scroll") &&
-  //     !event.target.matches(".filter__menu_link")
-  //   ) {
-  //     showGenreFilterMenu();
-  //   }
-  // };
+  window.onclick = () => {
+    setAuthor(true);
+    setGenre(true);
+    setYear(true);
+  };
 
   return (
     <S.CenterBlockFilter>
       <S.FilterTitle>Искать по:</S.FilterTitle>
-      <S.FilterButtonBoxAuthor  >
+      <S.FilterButtonBoxAuthor onClick={e => e.stopPropagation()}>
         <S.FilterButtonAuthor $color={author} onClick={showAuthorFilterMenu}>
           исполнителю
         </S.FilterButtonAuthor>
         {!author && (
           <S.FilterMenu>
-            <S.FilterMenuScroll > 
+            <S.FilterMenuScroll>
               <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
               <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
               <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
@@ -97,8 +72,10 @@ export function FilterMusic() {
           </S.FilterMenu>
         )}
       </S.FilterButtonBoxAuthor>
-      <S.FilterButtonBoxYear>
-        <S.FilterButtonYear $color={year} onClick={showYearFilterMenu}>году впуска</S.FilterButtonYear>
+      <S.FilterButtonBoxYear onClick={e => e.stopPropagation()}>
+        <S.FilterButtonYear $color={year} onClick={showYearFilterMenu}>
+          году впуска
+        </S.FilterButtonYear>
         {!year && (
           <S.FilterMenu>
             <S.FilterMenuScroll>
@@ -127,8 +104,10 @@ export function FilterMusic() {
           </S.FilterMenu>
         )}
       </S.FilterButtonBoxYear>
-      <S.FilterButtonBoxGenre>
-        <S.FilterButtonGenre $color={genre} onClick={showGenreFilterMenu}>жанру</S.FilterButtonGenre>
+      <S.FilterButtonBoxGenre onClick={e => e.stopPropagation()}>
+        <S.FilterButtonGenre $color={genre} onClick={showGenreFilterMenu}>
+          жанру
+        </S.FilterButtonGenre>
         {!genre && (
           <S.FilterMenu>
             <S.FilterMenuScroll>
