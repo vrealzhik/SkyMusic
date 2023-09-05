@@ -1,4 +1,5 @@
 import { useState } from "react";
+import * as S from "../style.components/filter.style";
 
 export function FilterMusic() {
   const [author, setAuthor] = useState(true);
@@ -36,222 +37,115 @@ export function FilterMusic() {
   };
 
   // Тестовый вариант отлавливания клика вне компонента
-  window.onclick = (event) => {
-    if (
-      !event.target.matches(".filter__button") &&
-      !author &&
-      !event.target.matches(".filter__menu") &&
-      !event.target.matches(".filter__menu-scroll") &&
-      !event.target.matches(".filter__menu_link")
-    ) {
-      showAuthorFilterMenu();
-    }
-    if (
-      !event.target.matches(".filter__button") &&
-      !year &&
-      !event.target.matches(".filter__menu") &&
-      !event.target.matches(".filter__menu-scroll") &&
-      !event.target.matches(".filter__menu_link")
-    ) {
-      showYearFilterMenu();
-    }
-    if (
-      !event.target.matches(".filter__button") &&
-      !genre &&
-      !event.target.matches(".filter__menu") &&
-      !event.target.matches(".filter__menu-scroll") &&
-      !event.target.matches(".filter__menu_link")
-    ) {
-      showGenreFilterMenu();
-    }
-  };
+  // window.onclick = (event) => {
+  //   if (
+  //     !event.target.matches(".filter__button") &&
+  //     !author &&
+  //     !event.target.matches(".filter__menu") &&
+  //     !event.target.matches(".filter__menu-scroll") &&
+  //     !event.target.matches(".filter__menu_link")
+  //   ) {
+  //     showAuthorFilterMenu();
+  //   }
+  //   if (
+  //     !event.target.matches(".filter__button") &&
+  //     !year &&
+  //     !event.target.matches(".filter__menu") &&
+  //     !event.target.matches(".filter__menu-scroll") &&
+  //     !event.target.matches(".filter__menu_link")
+  //   ) {
+  //     showYearFilterMenu();
+  //   }
+  //   if (
+  //     !event.target.matches(".filter__button") &&
+  //     !genre &&
+  //     !event.target.matches(".filter__menu") &&
+  //     !event.target.matches(".filter__menu-scroll") &&
+  //     !event.target.matches(".filter__menu_link")
+  //   ) {
+  //     showGenreFilterMenu();
+  //   }
+  // };
 
   return (
-    <div className="centerblock__filter filter">
-      <div className="filter__title">Искать по:</div>
-      <div className="filter__button_box-author">
-        <button
-          className="filter__button button-author _btn-text"
-          onClick={showAuthorFilterMenu}
-        >
+    <S.CenterBlockFilter>
+      <S.FilterTitle>Искать по:</S.FilterTitle>
+      <S.FilterButtonBoxAuthor  >
+        <S.FilterButtonAuthor $color={author} onClick={showAuthorFilterMenu}>
           исполнителю
-        </button>
+        </S.FilterButtonAuthor>
         {!author && (
-          <div className="filter__menu">
-            <div className="filter__menu-scroll">
-              <a className="filter__menu_link" href="#">
-                Nero
-              </a>
-              <a className="filter__menu_link" href="#">
-                Nero
-              </a>
-              <a className="filter__menu_link" href="#">
-                Nero
-              </a>
-              <a className="filter__menu_link" href="#">
-                Nero
-              </a>
-              <a className="filter__menu_link" href="#">
-                Nero
-              </a>
-              <a className="filter__menu_link" href="#">
-                Nero
-              </a>
-              <a className="filter__menu_link" href="#">
-                Nero
-              </a>
-              <a className="filter__menu_link" href="#">
-                Nero
-              </a>
-              <a className="filter__menu_link" href="#">
-                Nero
-              </a>
-              <a className="filter__menu_link" href="#">
-                Nero
-              </a>
-              <a className="filter__menu_link" href="#">
-                Nero
-              </a>
-              <a className="filter__menu_link" href="#">
-                Nero
-              </a>
-              <a className="filter__menu_link" href="#">
-                Nero
-              </a>
-              <a className="filter__menu_link" href="#">
-                Nero
-              </a>
-              <a className="filter__menu_link" href="#">
-                Nero
-              </a>
-              <a className="filter__menu_link" href="#">
-                Nero
-              </a>
-            </div>
-          </div>
+          <S.FilterMenu>
+            <S.FilterMenuScroll > 
+              <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
+            </S.FilterMenuScroll>
+          </S.FilterMenu>
         )}
-      </div>
-      <div className="filter__button_box-year">
-        <button
-          className="filter__button button-year _btn-text"
-          onClick={showYearFilterMenu}
-        >
-          году впуска
-        </button>
+      </S.FilterButtonBoxAuthor>
+      <S.FilterButtonBoxYear>
+        <S.FilterButtonYear $color={year} onClick={showYearFilterMenu}>году впуска</S.FilterButtonYear>
         {!year && (
-          <div className="filter__menu">
-            <div className="filter__menu-scroll">
-              <a className="filter__menu_link" href="#">
-                1990
-              </a>
-              <a className="filter__menu_link" href="#">
-                1991
-              </a>
-              <a className="filter__menu_link" href="#">
-                1992
-              </a>
-              <a className="filter__menu_link" href="#">
-                1993
-              </a>
-              <a className="filter__menu_link" href="#">
-                1994
-              </a>
-              <a className="filter__menu_link" href="#">
-                1995
-              </a>
-              <a className="filter__menu_link" href="#">
-                1996
-              </a>
-              <a className="filter__menu_link" href="#">
-                1997
-              </a>
-              <a className="filter__menu_link" href="#">
-                1998
-              </a>
-              <a className="filter__menu_link" href="#">
-                1999
-              </a>
-              <a className="filter__menu_link" href="#">
-                2000
-              </a>
-              <a className="filter__menu_link" href="#">
-                2001
-              </a>
-              <a className="filter__menu_link" href="#">
-                2002
-              </a>
-              <a className="filter__menu_link" href="#">
-                2003
-              </a>
-              <a className="filter__menu_link" href="#">
-                2004
-              </a>
-              <a className="filter__menu_link" href="#">
-                2005
-              </a>
-              <a className="filter__menu_link" href="#">
-                2006
-              </a>
-              <a className="filter__menu_link" href="#">
-                2007
-              </a>
-              <a className="filter__menu_link" href="#">
-                2008
-              </a>
-              <a className="filter__menu_link" href="#">
-                2009
-              </a>
-              <a className="filter__menu_link" href="#">
-                2010
-              </a>
-            </div>
-          </div>
+          <S.FilterMenu>
+            <S.FilterMenuScroll>
+              <S.FilterMenuLink href="#">1990</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">1991</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">1992</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">1993</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">1994</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">1995</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">1996</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">1997</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">1998</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">1999</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">2000</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">2001</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">2002</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">2003</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">2004</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">2005</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">2006</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">2007</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">2008</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">2009</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">2010</S.FilterMenuLink>
+            </S.FilterMenuScroll>
+          </S.FilterMenu>
         )}
-      </div>
-      <div className="filter__button_box-genre">
-        <button
-          className="filter__button button-genre _btn-text"
-          onClick={showGenreFilterMenu}
-        >
-          жанру
-        </button>
+      </S.FilterButtonBoxYear>
+      <S.FilterButtonBoxGenre>
+        <S.FilterButtonGenre $color={genre} onClick={showGenreFilterMenu}>жанру</S.FilterButtonGenre>
         {!genre && (
-          <div className="filter__menu">
-            <div className="filter__menu-scroll">
-              <a className="filter__menu_link" href="#">
-                Поп
-              </a>
-              <a className="filter__menu_link" href="#">
-                Рок
-              </a>
-              <a className="filter__menu_link" href="#">
-                Инди
-              </a>
-              <a className="filter__menu_link" href="#">
-                Классика
-              </a>
-              <a className="filter__menu_link" href="#">
-                Рэп
-              </a>
-              <a className="filter__menu_link" href="#">
-                Джаз
-              </a>
-              <a className="filter__menu_link" href="#">
-                Блюз
-              </a>
-              <a className="filter__menu_link" href="#">
-                Регги
-              </a>
-              <a className="filter__menu_link" href="#">
-                Кантри
-              </a>
-              <a className="filter__menu_link" href="#">
-                Шансон
-              </a>
-            </div>
-          </div>
+          <S.FilterMenu>
+            <S.FilterMenuScroll>
+              <S.FilterMenuLink href="#">Поп</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Рок</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Инди</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Классика</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Рэп</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Джаз</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Блюз</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Регги</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Кантри</S.FilterMenuLink>
+              <S.FilterMenuLink href="#">Шансон</S.FilterMenuLink>
+            </S.FilterMenuScroll>
+          </S.FilterMenu>
         )}
-      </div>
-    </div>
+      </S.FilterButtonBoxGenre>
+    </S.CenterBlockFilter>
   );
 }

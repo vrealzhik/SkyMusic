@@ -1,54 +1,56 @@
+import * as S from '../style.components/PlaylistItem.style'
+
 export function PlaylistItem(props) {
   return (
-    <div className="playlist__item">
-      <div className="playlist__track track">
-        <div className="track__title">
+    <S.PlaylistItem>
+      <S.PlaylistTrack>
+        <S.TrackTitle>
           {props.bef ? (
-            <div className="track__img_sceleton"></div>
+            <S.TrackImgSceleton></S.TrackImgSceleton>
           ) : (
-            <div className="track__title-image">
-              <svg className="track__title-svg" alt="music">
+            <S.TrackTitleImage>
+              <S.TrackTitleSvg alt="music">
                 <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
-              </svg>
-            </div>
+              </S.TrackTitleSvg>
+            </S.TrackTitleImage>
           )}
-          <div className="track__title-text">
+          <div>
             {props.bef ? (
-              <div className="track__title_sceleton"></div>
+              <S.TrackTitleSceleton></S.TrackTitleSceleton>
             ) : (
-              <a className="track__title-link" href="http://">
-                {props.name} <span className="track__title-span"></span>
-              </a>
+              <S.TrackTitleLink href="http://">
+                {props.name}
+              </S.TrackTitleLink>
             )}
           </div>
-        </div>
-        <div className="track__author">
+        </S.TrackTitle>
+        <S.TrackAuthor>
           {props.bef ? (
-            <div className="track__author_sceleton"></div>
+            <S.TrackAuthorSceleton></S.TrackAuthorSceleton>
           ) : (
-            <a className="track__author-link" href="http://">
+            <S.TreckAuthorLink href="http://">
               {props.singer}
-            </a>
+            </S.TreckAuthorLink>
           )}
-        </div>
+        </S.TrackAuthor>
         {props.bef ? (
-          <div className="track__album_sceleton"></div>
+          <S.TreckAlbumSceleton></S.TreckAlbumSceleton>
         ) : (
-          <div className="track__album_box">
-            <div className="track__album">
-              <a className="track__album-link" href="http://">
+          <S.TrackAlbumBox>
+            <S.TrackAlbum>
+              <S.TrackAlbumLink href="http://">
                 {props.albom}
-              </a>
-            </div>
-            <div className="track__time">
-              <svg className="track__time-svg" alt="time">
+              </S.TrackAlbumLink>
+            </S.TrackAlbum>
+            <div>
+              <S.TrackTimeSvg alt="time">
                 <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
-              </svg>
-              <span className="track__time-text">4:44</span>
+              </S.TrackTimeSvg>
+              <S.TrackTimeText>4:44</S.TrackTimeText>
             </div>
-          </div>
+          </S.TrackAlbumBox>
         )}
-      </div>
-    </div>
+      </S.PlaylistTrack>
+    </S.PlaylistItem>
   );
 }
