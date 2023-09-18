@@ -76,7 +76,7 @@ export const SidebarItem = styled.div`
   }
 `;
 
-export const SidebarLink = styled.a`
+export const SidebarLink = styled.span`
   width: 100%;
   height: 100%;
 `;

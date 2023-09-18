@@ -1,4 +1,4 @@
-import * as S from '../style.components/search.style';
+import * as S from "./search.style";
 
 export function Search() {
   return (

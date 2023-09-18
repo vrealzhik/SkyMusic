@@ -1,4 +1,4 @@
-import * as S from '../style.components/bar.style'
+import * as S from "./bar.style";
 
 export function BarMusic(props) {
   return (

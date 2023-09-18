@@ -1,4 +1,4 @@
-import * as S from "../style.components/topPlaylistTitle.style";
+import * as S from "./topPlaylistTitle.style";
 
 export function PlaylistTitle() {
   return (

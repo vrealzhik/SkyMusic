@@ -55,20 +55,20 @@ export const FilterButtonMixin = css`
 
 export const FilterButtonAuthor = styled.button`
   ${FilterButtonMixin}
-  border: 1px solid ${(props) => (props.$color ? "#ffffff" : "#ad61ff")};
-  color: ${(props) => (props.$color ? "#ffffff" : "#ad61ff")};
+  border: 1px solid ${(props) => ((props.$color === 'author') ? "#ad61ff" : "#ffffff")};
+  color: ${(props) => ((props.$color === 'author') ? "#ad61ff" : "#ffffff")};
 `;
 
 export const FilterButtonYear = styled.button`
   ${FilterButtonMixin}
-  border: 1px solid ${(props) => (props.$color ? "#ffffff" : "#ad61ff")};
-  color: ${(props) => (props.$color ? "#ffffff" : "#ad61ff")};
+  border: 1px solid ${(props) => ((props.$color === 'year') ? "#ad61ff" : "#ffffff")};
+  color: ${(props) => ((props.$color === 'year') ? "#ad61ff" : "#ffffff")};
 `;
 
 export const FilterButtonGenre = styled.button`
   ${FilterButtonMixin}
-  border: 1px solid ${(props) => (props.$color ? "#ffffff" : "#ad61ff")};
-  color: ${(props) => (props.$color ? "#ffffff" : "#ad61ff")};
+  border: 1px solid ${(props) => ((props.$color === 'genre') ? "#ad61ff" : "#ffffff")};
+  color: ${(props) => ((props.$color === 'genre') ? "#ad61ff" : "#ffffff")};
 `;
 
 export const FilterMenu = styled.div`
