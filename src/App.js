@@ -7,6 +7,8 @@ import { FilterMusic } from "./components/filter";
 import { PlaylistTitle } from "./components/topPlyalistTitle";
 import { Sidebar } from "./components/sidebar";
 import { useEffect, useState } from "react";
+import * as S from './style.components/app.style';
+
 
 function App() {
   const [sceleton, setSceleton] = useState(true);
@@ -22,18 +24,18 @@ function App() {
   }, []);
 
   return (
-    <div className="wrapper">
-      <div className="container">
-        <main className="main">
+    <S.Wrapper>
+      <S.Container>
+        <S.Main>
           <MainNav />
-          <div className="main__centerblock centerblock">
+          <S.MainCenterblock>
             <Search />
-            <h2 className="centerblock__h2">Треки</h2>
+            <S.CenterblockH2>Треки</S.CenterblockH2>
             <FilterMusic />
-            <div className="centerblock__content">
+            <S.CenterblockContent>
               <PlaylistTitle />
 
-              <div className="content__playlist playlist">
+              <S.ContentPlaylist>
                 <PlaylistItem
                   name="Guilt"
                   singer="Nero"
@@ -112,15 +114,15 @@ function App() {
                   albom="Welcome Reality"
                   bef={sceleton}
                 />
-              </div>
-            </div>
-          </div>
+              </S.ContentPlaylist>
+            </S.CenterblockContent>
+          </S.MainCenterblock>
           <Sidebar bef={sceleton} />
-        </main>
+        </S.Main>
         <BarMusic bef={sceleton} />
         <footer className="footer"></footer>
-      </div>
-    </div>
+      </S.Container>
+    </S.Wrapper>
   );
 }
 
