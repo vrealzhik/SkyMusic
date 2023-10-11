@@ -1,56 +1,29 @@
 import { useState } from "react";
-import * as S from "../style.components/filter.style";
+import * as S from "./filter.style";
 
 export function FilterMusic() {
-  const [author, setAuthor] = useState(true);
-  const [year, setYear] = useState(true);
-  const [genre, setGenre] = useState(true);
+  const [visibleFilter, setVisibleFilter] = useState(null);
 
-  const showAuthorFilterMenu = () => {
-    setAuthor(!author);
-    if (!year) {
-      showYearFilterMenu();
-    }
-    if (!genre) {
-      showGenreFilterMenu();
-    }
-  };
-
-  const showYearFilterMenu = () => {
-    setYear(!year);
-    if (!author) {
-      showAuthorFilterMenu();
-    }
-    if (!genre) {
-      showGenreFilterMenu();
-    }
-  };
-
-  const showGenreFilterMenu = () => {
-    setGenre(!genre);
-    if (!author) {
-      showAuthorFilterMenu();
-    }
-    if (!year) {
-      showYearFilterMenu();
-    }
+  const toggleVisibleFilter = (filter) => {
+    setVisibleFilter(visibleFilter === filter ? null : filter);
   };
 
   window.onclick = () => {
-    setAuthor(true);
-    setGenre(true);
-    setYear(true);
+    setVisibleFilter(null);
   };
 
   return (
     <S.CenterBlockFilter>
       <S.FilterTitle>Искать по:</S.FilterTitle>
-      <S.FilterButtonBoxAuthor onClick={e => e.stopPropagation()}>
-        <S.FilterButtonAuthor $color={author} onClick={showAuthorFilterMenu}>
+      <S.FilterButtonBoxAuthor onClick={(e) => e.stopPropagation()}>
+        <S.FilterButtonAuthor
+          $color={visibleFilter}
+          onClick={() => toggleVisibleFilter("author")}
+        >
           исполнителю
         </S.FilterButtonAuthor>
-        {!author && (
-          <S.FilterMenu>
+        {visibleFilter === "author" && (
+          <S.FilterMenu> 
             <S.FilterMenuScroll>
               <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
               <S.FilterMenuLink href="#">Nero</S.FilterMenuLink>
@@ -72,11 +45,14 @@ export function FilterMusic() {
           </S.FilterMenu>
         )}
       </S.FilterButtonBoxAuthor>
-      <S.FilterButtonBoxYear onClick={e => e.stopPropagation()}>
-        <S.FilterButtonYear $color={year} onClick={showYearFilterMenu}>
+      <S.FilterButtonBoxYear onClick={(e) => e.stopPropagation()}>
+        <S.FilterButtonYear
+          $color={visibleFilter}
+          onClick={() => toggleVisibleFilter("year")}
+        >
           году впуска
         </S.FilterButtonYear>
-        {!year && (
+        {visibleFilter === "year" && (
           <S.FilterMenu>
             <S.FilterMenuScroll>
               <S.FilterMenuLink href="#">1990</S.FilterMenuLink>
@@ -104,11 +80,14 @@ export function FilterMusic() {
           </S.FilterMenu>
         )}
       </S.FilterButtonBoxYear>
-      <S.FilterButtonBoxGenre onClick={e => e.stopPropagation()}>
-        <S.FilterButtonGenre $color={genre} onClick={showGenreFilterMenu}>
+      <S.FilterButtonBoxGenre onClick={(e) => e.stopPropagation()}>
+        <S.FilterButtonGenre
+          $color={visibleFilter}
+          onClick={() => toggleVisibleFilter("genre")}
+        >
           жанру
         </S.FilterButtonGenre>
-        {!genre && (
+        {visibleFilter === "genre" && (
           <S.FilterMenu>
             <S.FilterMenuScroll>
               <S.FilterMenuLink href="#">Поп</S.FilterMenuLink>

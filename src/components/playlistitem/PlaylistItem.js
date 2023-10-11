@@ -1,4 +1,4 @@
-import * as S from '../style.components/PlaylistItem.style'
+import * as S from "./PlaylistItem.style";
 
 export function PlaylistItem(props) {
   return (
@@ -18,9 +18,7 @@ export function PlaylistItem(props) {
             {props.bef ? (
               <S.TrackTitleSceleton></S.TrackTitleSceleton>
             ) : (
-              <S.TrackTitleLink href="http://">
-                {props.name}
-              </S.TrackTitleLink>
+              <S.TrackTitleLink href="http://">{props.name}</S.TrackTitleLink>
             )}
           </div>
         </S.TrackTitle>
@@ -28,9 +26,7 @@ export function PlaylistItem(props) {
           {props.bef ? (
             <S.TrackAuthorSceleton></S.TrackAuthorSceleton>
           ) : (
-            <S.TreckAuthorLink href="http://">
-              {props.singer}
-            </S.TreckAuthorLink>
+            <S.TreckAuthorLink href="http://">{props.singer}</S.TreckAuthorLink>
           )}
         </S.TrackAuthor>
         {props.bef ? (
@@ -38,9 +34,7 @@ export function PlaylistItem(props) {
         ) : (
           <S.TrackAlbumBox>
             <S.TrackAlbum>
-              <S.TrackAlbumLink href="http://">
-                {props.albom}
-              </S.TrackAlbumLink>
+              <S.TrackAlbumLink href="http://">{props.albom}</S.TrackAlbumLink>
             </S.TrackAlbum>
             <div>
               <S.TrackTimeSvg alt="time">
