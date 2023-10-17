@@ -23,7 +23,7 @@ export function MainNav() {
                 <S.MenuLink>Главное</S.MenuLink>
               </S.MenuItem>
             </Link>
-            <Link to="/myplay">
+            <Link to="/favorites">
               <S.MenuItem>
                 <S.MenuLink>Мой плейлист</S.MenuLink>
               </S.MenuItem>

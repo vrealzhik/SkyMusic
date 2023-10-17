@@ -15,7 +15,7 @@ export function Sidebar(props) {
       <S.SidebarBlock>
         <S.SidebarList>
           <S.SidebarItem>
-            <Link to="/sidepage/1">
+            <Link to="/category/1">
               <S.SidebarLink>
                 {props.bef ? (
                   <S.SidebarSceleton></S.SidebarSceleton>
@@ -26,7 +26,7 @@ export function Sidebar(props) {
             </Link>
           </S.SidebarItem>
           <S.SidebarItem>
-            <Link to="/sidepage/2">
+            <Link to="/category/2">
               <S.SidebarLink>
                 {props.bef ? (
                   <S.SidebarSceleton></S.SidebarSceleton>
@@ -37,7 +37,7 @@ export function Sidebar(props) {
             </Link>
           </S.SidebarItem>
           <S.SidebarItem>
-            <Link to="/sidepage/3">
+            <Link to="/category/3">
               <S.SidebarLink>
                 {props.bef ? (
                   <S.SidebarSceleton></S.SidebarSceleton>

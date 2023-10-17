@@ -7,13 +7,16 @@ import NotFound from "./pages/notFound/notFound";
 import { ProtectedRoute } from "./protectedRoute";
 
 export const AppRoutes = () => {
+  localStorage.setItem('token', true);
+  let value = localStorage.getItem('token')
+  console.log(value)
   return (
     <Routes>
-      <Route element={<ProtectedRoute isToken={true} />}>
+      <Route element={<ProtectedRoute isToken={value} />}>
         <Route path="/" element={<Main />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/myplay" element={<MyPlaylist />} />
-        <Route path="/sidepage/:id" element={<SidebarPages />} />
+        <Route path="/favorites" element={<MyPlaylist />} />
+        <Route path="/category/:id" element={<SidebarPages />} />
       </Route>
       <Route path="/login" element={<Login />} />
     </Routes>
