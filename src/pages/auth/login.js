@@ -2,7 +2,12 @@ import { Link } from "react-router-dom";
 import * as S from "./login.style";
 import { useState } from "react";
 
-function Login() {
+function Login({handleLogin}) {
+
+  const login = () => {
+    handleLogin()
+  }
+
   const [modalBlock, setModalBlock] = useState(true);
 
   const toggleModalBlock = () => {
@@ -22,7 +27,7 @@ function Login() {
           {modalBlock ? (
             <S.ModalLoginSignupBox>
               <Link to="/">
-                <S.ModalLoginBtn>Войти</S.ModalLoginBtn>
+                <S.ModalLoginBtn onClick={login} >Войти</S.ModalLoginBtn>
               </Link>
               <S.ModalSignupBtn onClick={toggleModalBlock}>
                 Зарегистрироваться
