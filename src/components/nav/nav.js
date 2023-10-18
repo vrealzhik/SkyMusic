@@ -30,7 +30,7 @@ export function MainNav() {
             </Link>
             <Link to="/login">
               <S.MenuItem>
-                <S.MenuLink>Войти</S.MenuLink>
+                <S.MenuLink>Выйти</S.MenuLink>
               </S.MenuItem>
             </Link>
           </S.MenuList>
