@@ -9,17 +9,22 @@ import { Sidebar } from "../../components/sidebar/sidebar";
 import * as S from "./main.style";
 import useSceleton from "../../hooks/useSceleton";
 
-function Main() {
+function Main({handleLogout}) {
+
+  const logout = () => {
+    handleLogout()
+  }
+
   const {sceleton} = useSceleton(true);
 
   return (
     <S.Wrapper>
       <S.Container>
         <S.Main>
-          <MainNav />
+          <MainNav logout={logout} />
           <S.MainCenterblock>
             <Search />
-            <S.CenterblockH2>Треки</S.CenterblockH2>
+            <S.CenterblockH2 >Треки</S.CenterblockH2>
             <FilterMusic />
             <S.CenterblockContent>
               <PlaylistTitle />

@@ -24,8 +24,8 @@ export const AppRoutes = () => {
   }
   return (
     <Routes>
-      <Route element={<ProtectedRoute isAuth={isAuth} handleLogout={handleLogout}/>}>
-        <Route path="/" element={<Main />} />
+      <Route element={<ProtectedRoute isAuth={isAuth} />}>
+        <Route path="/" element={<Main handleLogout={handleLogout}/>} />
         <Route path="*" element={<NotFound />} />
         <Route path="/favorites" element={<MyPlaylist />} />
         <Route path="/category/:id" element={<SidebarPages />} />
