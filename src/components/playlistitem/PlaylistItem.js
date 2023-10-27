@@ -1,11 +1,16 @@
 import * as S from "./PlaylistItem.style";
 
-export function PlaylistItem(props) {
+export function PlaylistItem({ track, bef, setCurrentTrack }) {
+  let sec = track.duration_in_seconds % 60;
+  if (sec < 10) {
+    sec = "0" + sec;
+  }
+  let min = ~~(track.duration_in_seconds / 60);
   return (
-    <S.PlaylistItem>
+    <S.PlaylistItem onClick={() => setCurrentTrack(track)}>
       <S.PlaylistTrack>
         <S.TrackTitle>
-          {props.bef ? (
+          {bef ? (
             <S.TrackImgSceleton></S.TrackImgSceleton>
           ) : (
             <S.TrackTitleImage>
@@ -15,32 +20,34 @@ export function PlaylistItem(props) {
             </S.TrackTitleImage>
           )}
           <div>
-            {props.bef ? (
+            {bef ? (
               <S.TrackTitleSceleton></S.TrackTitleSceleton>
             ) : (
-              <S.TrackTitleLink href="http://">{props.name}</S.TrackTitleLink>
+              <S.TrackTitleLink>{track.name}</S.TrackTitleLink>
             )}
           </div>
         </S.TrackTitle>
         <S.TrackAuthor>
-          {props.bef ? (
+          {bef ? (
             <S.TrackAuthorSceleton></S.TrackAuthorSceleton>
           ) : (
-            <S.TreckAuthorLink href="http://">{props.singer}</S.TreckAuthorLink>
+            <S.TreckAuthorLink>{track.author}</S.TreckAuthorLink>
           )}
         </S.TrackAuthor>
-        {props.bef ? (
+        {bef ? (
           <S.TreckAlbumSceleton></S.TreckAlbumSceleton>
         ) : (
           <S.TrackAlbumBox>
             <S.TrackAlbum>
-              <S.TrackAlbumLink href="http://">{props.albom}</S.TrackAlbumLink>
+              <S.TrackAlbumLink>{track.album}</S.TrackAlbumLink>
             </S.TrackAlbum>
             <div>
               <S.TrackTimeSvg alt="time">
                 <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
               </S.TrackTimeSvg>
-              <S.TrackTimeText>4:44</S.TrackTimeText>
+              <S.TrackTimeText>
+                {min}:{sec}
+              </S.TrackTimeText>
             </div>
           </S.TrackAlbumBox>
         )}

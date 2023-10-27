@@ -74,7 +74,7 @@ export const TrackTitleSceleton = styled.div`
   animation: sceleton 2s infinite;
 `;
 
-export const TrackTitleLink = styled.a`
+export const TrackTitleLink = styled.span`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
