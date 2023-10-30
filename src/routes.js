@@ -7,30 +7,39 @@ import SidebarPages from "./pages/sidebarPages/sidebarPages";
 import NotFound from "./pages/notFound/notFound";
 import { ProtectedRoute } from "./protectedRoute";
 
-export const AppRoutes = () => {
+export const AppRoutes = ({ currentTrack, setCurrentTrack }) => {
   const [isAuth, setIsAuth] = useState(() => {
-    const storedValue = localStorage.getItem('isAuth')
-    return storedValue ? JSON.parse(storedValue) : false
-  })
+    const storedValue = localStorage.getItem("isAuth");
+    return storedValue ? JSON.parse(storedValue) : false;
+  });
 
   const handleLogin = () => {
-    setIsAuth(true)
-    localStorage.setItem('isAuth', JSON.stringify(true))
-  }
+    setIsAuth(true);
+    localStorage.setItem("isAuth", JSON.stringify(true));
+  };
 
   const handleLogout = () => {
-    setIsAuth(false)
-    localStorage.removeItem('isAuth')
-  }
+    setIsAuth(false);
+    localStorage.removeItem("isAuth");
+  };
   return (
     <Routes>
-      <Route element={<ProtectedRoute isAuth={isAuth} handleLogout={handleLogout}/>}>
-        <Route path="/" element={<Main />} />
+      <Route element={<ProtectedRoute isAuth={isAuth} />}>
+        <Route
+          path="/"
+          element={
+            <Main
+              currentTrack={currentTrack}
+              setCurrentTrack={setCurrentTrack}
+              handleLogout={handleLogout}
+            />
+          }
+        />
         <Route path="*" element={<NotFound />} />
         <Route path="/favorites" element={<MyPlaylist />} />
         <Route path="/category/:id" element={<SidebarPages />} />
       </Route>
-      <Route path="/login" element={<Login handleLogin={handleLogin}/>} />
+      <Route path="/login" element={<Login handleLogin={handleLogin} />} />
     </Routes>
   );
 };

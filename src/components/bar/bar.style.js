@@ -235,7 +235,7 @@ export const TrackPlayAlbum = styled.div`
   grid-row: 2;
   grid-column: 2;
   grid-area: album;
-  min-width: 49px;
+  width: 100px;
 `;
 
 export const TrackAlbumBarSceleton = styled.div`
@@ -250,6 +250,7 @@ export const TrackPlayAlbumLink = styled.a`
   font-size: 13px;
   line-height: 24px;
   color: #ffffff;
+  width: 100px;
 `;
 
 export const TrackPlayLikeDis = styled.div`

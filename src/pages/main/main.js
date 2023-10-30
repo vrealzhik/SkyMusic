@@ -8,15 +8,31 @@ import { PlaylistTitle } from "../../components/topplaylistttitle/topPlyalistTit
 import { Sidebar } from "../../components/sidebar/sidebar";
 import * as S from "./main.style";
 import useSceleton from "../../hooks/useSceleton";
+import { getPlaylist } from "../../api";
+import { useEffect, useState } from "react";
 
-function Main() {
-  const {sceleton} = useSceleton(true);
+function Main({ handleLogout, currentTrack, setCurrentTrack }) {
+  const [allTrack, setAllTrack] = useState([]);
+  // скелетоны сделать отдельно от рендера треков
+
+  useEffect(() => {
+    getPlaylist().then((tracks) => {
+      console.log(tracks);
+      setAllTrack(tracks);
+    });
+  }, []);
+
+  const logout = () => {
+    handleLogout();
+  };
+
+  const { sceleton } = useSceleton(true);
 
   return (
     <S.Wrapper>
       <S.Container>
         <S.Main>
-          <MainNav />
+          <MainNav logout={logout} />
           <S.MainCenterblock>
             <Search />
             <S.CenterblockH2>Треки</S.CenterblockH2>
@@ -25,90 +41,18 @@ function Main() {
               <PlaylistTitle />
 
               <S.ContentPlaylist>
-                <PlaylistItem
-                  name="Guilt"
-                  singer="Nero"
-                  albom="Welcome Reality"
-                  bef={sceleton}
-                />
-                <PlaylistItem
-                  name="Guilt"
-                  singer="Nero"
-                  albom="Welcome Reality"
-                  bef={sceleton}
-                />
-                <PlaylistItem
-                  name="Guilt"
-                  singer="Nero"
-                  albom="Welcome Reality"
-                  bef={sceleton}
-                />
-                <PlaylistItem
-                  name="Guilt"
-                  singer="Nero"
-                  albom="Welcome Reality"
-                  bef={sceleton}
-                />
-                <PlaylistItem
-                  name="Guilt"
-                  singer="Nero"
-                  albom="Welcome Reality"
-                  bef={sceleton}
-                />
-                <PlaylistItem
-                  name="Guilt"
-                  singer="Nero"
-                  albom="Welcome Reality"
-                  bef={sceleton}
-                />
-                <PlaylistItem
-                  name="Guilt"
-                  singer="Nero"
-                  albom="Welcome Reality"
-                  bef={sceleton}
-                />
-                <PlaylistItem
-                  name="Guilt"
-                  singer="Nero"
-                  albom="Welcome Reality"
-                  bef={sceleton}
-                />
-                <PlaylistItem
-                  name="Guilt"
-                  singer="Nero"
-                  albom="Welcome Reality"
-                  bef={sceleton}
-                />
-                <PlaylistItem
-                  name="Guilt"
-                  singer="Nero"
-                  albom="Welcome Reality"
-                  bef={sceleton}
-                />
-                <PlaylistItem
-                  name="Guilt"
-                  singer="Nero"
-                  albom="Welcome Reality"
-                  bef={sceleton}
-                />
-                <PlaylistItem
-                  name="Guilt"
-                  singer="Nero"
-                  albom="Welcome Reality"
-                  bef={sceleton}
-                />
-                <PlaylistItem
-                  name="Guilt"
-                  singer="Nero"
-                  albom="Welcome Reality"
-                  bef={sceleton}
-                />
+                {allTrack.map((track, index) => {
+                  return (
+                    <PlaylistItem setCurrentTrack={setCurrentTrack} key={index} track={track} bef={sceleton} />
+                  );
+                })}
               </S.ContentPlaylist>
             </S.CenterblockContent>
           </S.MainCenterblock>
           <Sidebar bef={sceleton} />
         </S.Main>
-        <BarMusic bef={sceleton} />
+        {currentTrack ? <BarMusic currentTrack={currentTrack} bef={sceleton} /> : null}
+
         <footer className="footer"></footer>
       </S.Container>
     </S.Wrapper>

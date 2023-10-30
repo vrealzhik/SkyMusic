@@ -2,13 +2,21 @@ import * as S from "./nav.style";
 import useToggleVisibility from "../../hooks/useToggleVisibility";
 import { Link } from "react-router-dom";
 
-export function MainNav() {
+export function MainNav({logout}) {
+
+  const funcLogout = () => {
+    logout()
+  }
+
   const { visible, toggle } = useToggleVisibility(true);
 
   return (
     <S.MainNav>
       <S.NavLogo>
-        <S.LogoImage src={`${process.env.PUBLIC_URL}/img/logo.png`} alt="logo" />
+        <S.LogoImage
+          src={`${process.env.PUBLIC_URL}/img/logo.png`}
+          alt="logo"
+        />
       </S.NavLogo>
       <S.NavBurger onClick={toggle}>
         <S.BurgerLine className="burger__line"></S.BurgerLine>
@@ -28,11 +36,9 @@ export function MainNav() {
                 <S.MenuLink>Мой плейлист</S.MenuLink>
               </S.MenuItem>
             </Link>
-            <Link to="/login">
-              <S.MenuItem>
-                <S.MenuLink>Выйти</S.MenuLink>
-              </S.MenuItem>
-            </Link>
+            <S.MenuItem>
+              <S.MenuLink onClick={funcLogout} >Выйти</S.MenuLink>
+            </S.MenuItem>
           </S.MenuList>
         </S.NavMenu>
       )}

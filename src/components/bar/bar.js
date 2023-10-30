@@ -1,6 +1,6 @@
 import * as S from "./bar.style";
 
-export function BarMusic(props) {
+export function BarMusic({bef, currentTrack}) {
   return (
     <S.Bar>
       <S.BarContent>
@@ -37,7 +37,7 @@ export function BarMusic(props) {
 
             <S.PlayerTrackPlay>
               <S.TrackPlayContain>
-                {props.bef ? (
+                {bef ? (
                   <S.TrackImgBarSceleton></S.TrackImgBarSceleton>
                 ) : (
                   <S.TrackPlayImage>
@@ -47,20 +47,20 @@ export function BarMusic(props) {
                   </S.TrackPlayImage>
                 )}
                 <S.TrackPlayAuthor>
-                  {props.bef ? (
+                  {bef ? (
                     <S.TrackAuthorBarSceleton></S.TrackAuthorBarSceleton>
                   ) : (
                     <S.TrackPlayAuthorLink href="http://">
-                      Ты та...
+                      {currentTrack.name}
                     </S.TrackPlayAuthorLink>
                   )}
                 </S.TrackPlayAuthor>
                 <S.TrackPlayAlbum>
-                  {props.bef ? (
+                  {bef ? (
                     <S.TrackAlbumBarSceleton></S.TrackAlbumBarSceleton>
                   ) : (
                     <S.TrackPlayAlbumLink href="http://">
-                      Баста
+                      {currentTrack.author}
                     </S.TrackPlayAlbumLink>
                   )}
                 </S.TrackPlayAlbum>
