@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { styled } from "styled-components";
 
 export const StyledProgressInput = styled.input`
@@ -16,6 +15,7 @@ export const StyledProgressInput = styled.input`
   background: transparent;
   position: relative;
   overflow: hidden;
+  position: relative;
 
   &::-webkit-slider-runnable-track {
     position: relative;
@@ -57,19 +57,43 @@ export const StyledProgressInput = styled.input`
   }
 `;
 
-export default function ProgressBar() {
-  const [currentTime, setCurrentTime] = useState(70);
-  const duration = 230;
+export const StyledTimeUnderBar = styled.p `
+  color: white;
+  position: absolute;
+  left: 1720px;
+  text-align: right;
+`;
 
+export default function ProgressBar({
+  handleSeekTrackTime,
+  duration,
+  currentTime,
+}) {
+  let sec;
+  let min;
+
+  const normTime = (x) => {
+    sec = Math.ceil(x % 60);
+    if (sec < 10) {
+      sec = "0" + sec;
+    }
+    min = ~~(x / 60);
+    return `${min}:${sec}`;
+  };
   return (
-    <StyledProgressInput
-      type="range"
-      min={0}
-      max={duration}
-      value={currentTime}
-      step={0.01}
-      onChange={(event) => setCurrentTime(event.target.value)}
-      $color="#ff0000"
-    />
+    <div>
+      <StyledProgressInput
+        type="range"
+        min={0}
+        max={duration}
+        value={currentTime}
+        step={0.01}
+        onChange={handleSeekTrackTime}
+        $color="#B672FF"
+      />
+      <StyledTimeUnderBar>
+        {normTime(currentTime)}/{normTime(duration)}
+      </StyledTimeUnderBar>
+    </div>
   );
 }
