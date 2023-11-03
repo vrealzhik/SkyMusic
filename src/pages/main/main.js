@@ -17,14 +17,14 @@ function Main({ handleLogout, currentTrack, setCurrentTrack }) {
   // скелетоны сделать отдельно от рендера треков
 
   useEffect(() => {
-    try {
-      getPlaylist().then((tracks) => {
+    getPlaylist()
+      .then((tracks) => {
         console.log(tracks);
         setAllTrack(tracks);
+      })
+      .catch((error) => {
+        setAddError(error.message);
       });
-    } catch (error) {
-      setAddError(error.message);
-    }
   }, []);
 
   const logout = () => {

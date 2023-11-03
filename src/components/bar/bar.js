@@ -1,10 +1,16 @@
+import { StyledProgressInput } from "../progressBar/progressBar";
 import * as S from "./bar.style";
 
 export function BarMusic({bef, currentTrack}) {
+  console.log(currentTrack.track_file)
   return (
     <S.Bar>
+      <audio controls hidden>
+        <source src={currentTrack.track_file}></source>
+      </audio>
       <S.BarContent>
-        <S.BarPlayerProgress></S.BarPlayerProgress>
+        <StyledProgressInput></StyledProgressInput>
+        
         <S.BarPlayerBlock>
           <S.BarPlayer>
             <S.PlayerControls>
