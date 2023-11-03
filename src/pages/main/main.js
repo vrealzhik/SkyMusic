@@ -13,13 +13,18 @@ import { useEffect, useState } from "react";
 
 function Main({ handleLogout, currentTrack, setCurrentTrack }) {
   const [allTrack, setAllTrack] = useState([]);
+  const [addError, setAddError] = useState(null);
   // скелетоны сделать отдельно от рендера треков
 
   useEffect(() => {
-    getPlaylist().then((tracks) => {
-      console.log(tracks);
-      setAllTrack(tracks);
-    });
+    try {
+      getPlaylist().then((tracks) => {
+        console.log(tracks);
+        setAllTrack(tracks);
+      });
+    } catch (error) {
+      setAddError(error.message);
+    }
   }, []);
 
   const logout = () => {
@@ -39,19 +44,29 @@ function Main({ handleLogout, currentTrack, setCurrentTrack }) {
             <FilterMusic />
             <S.CenterblockContent>
               <PlaylistTitle />
-
-              <S.ContentPlaylist>
-                {allTrack.map((track, index) => {
-                  return (
-                    <PlaylistItem setCurrentTrack={setCurrentTrack} key={index} track={track} bef={sceleton} />
-                  );
-                })}
-              </S.ContentPlaylist>
+              {!addError ? (
+                <S.ContentPlaylist>
+                  {allTrack.map((track, index) => {
+                    return (
+                      <PlaylistItem
+                        setCurrentTrack={setCurrentTrack}
+                        key={index}
+                        track={track}
+                        bef={sceleton}
+                      />
+                    );
+                  })}
+                </S.ContentPlaylist>
+              ) : (
+                <p>Не удалось загрузить плейлист, попробуйте позже</p>
+              )}
             </S.CenterblockContent>
           </S.MainCenterblock>
           <Sidebar bef={sceleton} />
         </S.Main>
-        {currentTrack ? <BarMusic currentTrack={currentTrack} bef={sceleton} /> : null}
+        {currentTrack ? (
+          <BarMusic currentTrack={currentTrack} bef={sceleton} />
+        ) : null}
 
         <footer className="footer"></footer>
       </S.Container>

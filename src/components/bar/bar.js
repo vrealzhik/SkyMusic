@@ -46,24 +46,24 @@ export function BarMusic({bef, currentTrack}) {
                     </S.TrackPlaySvg>
                   </S.TrackPlayImage>
                 )}
+                <S.TrackPlayName>
+                  {bef ? (
+                    <S.TrackNameBarSceleton></S.TrackNameBarSceleton>
+                  ) : (
+                    <S.TrackPlayNameLink href="http://">
+                      {currentTrack.name}
+                    </S.TrackPlayNameLink>
+                  )}
+                </S.TrackPlayName>
                 <S.TrackPlayAuthor>
                   {bef ? (
                     <S.TrackAuthorBarSceleton></S.TrackAuthorBarSceleton>
                   ) : (
                     <S.TrackPlayAuthorLink href="http://">
-                      {currentTrack.name}
+                      {currentTrack.author}
                     </S.TrackPlayAuthorLink>
                   )}
                 </S.TrackPlayAuthor>
-                <S.TrackPlayAlbum>
-                  {bef ? (
-                    <S.TrackAlbumBarSceleton></S.TrackAlbumBarSceleton>
-                  ) : (
-                    <S.TrackPlayAlbumLink href="http://">
-                      {currentTrack.author}
-                    </S.TrackPlayAlbumLink>
-                  )}
-                </S.TrackPlayAlbum>
               </S.TrackPlayContain>
               <S.TrackPlayLikeDis>
                 <S.TrackPlayLike>

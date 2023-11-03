@@ -209,20 +209,20 @@ export const TrackPlaySvg = styled.svg`
   stroke: #4e4e4e;
 `;
 
-export const TrackPlayAuthor = styled.div`
+export const TrackPlayName = styled.div`
   grid-row: 1;
   grid-column: 2;
   grid-area: author;
   min-width: 49px;
 `;
 
-export const TrackAuthorBarSceleton = styled.div`
+export const TrackNameBarSceleton = styled.div`
   width: 58px;
   height: 13px;
   animation: sceleton 2s infinite;
 `;
 
-export const TrackPlayAuthorLink = styled.a`
+export const TrackPlayNameLink = styled.a`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -231,26 +231,26 @@ export const TrackPlayAuthorLink = styled.a`
   white-space: nowrap;
 `;
 
-export const TrackPlayAlbum = styled.div`
+export const TrackPlayAuthor = styled.div`
   grid-row: 2;
   grid-column: 2;
   grid-area: album;
   width: 100px;
 `;
 
-export const TrackAlbumBarSceleton = styled.div`
+export const TrackAuthorBarSceleton = styled.div`
   width: 58px;
   height: 13px;
   animation: sceleton 2s infinite;
 `;
 
-export const TrackPlayAlbumLink = styled.a`
+export const TrackPlayAuthorLink = styled.p`
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
   line-height: 24px;
   color: #ffffff;
-  width: 100px;
+  white-space: nowrap;
 `;
 
 export const TrackPlayLikeDis = styled.div`
