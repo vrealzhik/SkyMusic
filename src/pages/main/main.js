@@ -65,7 +65,7 @@ function Main({ handleLogout, currentTrack, setCurrentTrack }) {
           <Sidebar bef={sceleton} />
         </S.Main>
         {currentTrack ? (
-          <BarMusic currentTrack={currentTrack} bef={sceleton} />
+          <BarMusic currentTrack={currentTrack} setCurrentTrack={setCurrentTrack} bef={sceleton} />
         ) : null}
 
         <footer className="footer"></footer>

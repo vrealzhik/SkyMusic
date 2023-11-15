@@ -119,7 +119,7 @@ export const PlayerBtnRepeatSvg = styled.svg`
   width: 18px;
   height: 12px;
   fill: transparent;
-  stroke: #696969;
+  stroke: ${(props) => (props.isLoop ? "#ffffff" : "#696969")}
 `;
 
 export const PlayerBtnShuffle = styled.div`
@@ -359,4 +359,7 @@ export const VolumeProgress = styled.div`
 
 export const VolumeProgressLine = styled.input`
   width: 109px;
+  background: white;
+  cursor: pointer;
+  outline: none;
 `;
